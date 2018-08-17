@@ -54,6 +54,16 @@ public class ArrayListTest {
         assertEquals("Q", arrayWithThreeElements.get(1));
         assertEquals("B", arrayWithThreeElements.get(2));
         assertEquals("C", arrayWithThreeElements.get(3));
+        arrayWithThreeElements.add("z",3);
+    }
+
+    @Test
+    public void testRemoveByIndex() {
+        Object removedValue = arrayWithThreeElements.remove(1);
+        assertEquals("B", removedValue);
+        assertEquals(2, arrayWithThreeElements.size());
+        assertEquals("A", arrayWithThreeElements.get(0));
+        assertEquals("C", arrayWithThreeElements.get(1));
     }
 
 

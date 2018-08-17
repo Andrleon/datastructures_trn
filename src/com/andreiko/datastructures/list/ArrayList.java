@@ -18,7 +18,9 @@ public class ArrayList implements List {
 
     @Override
     public void add(Object value, int index) {
-
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index should be >= 0 and < size");
+        }
         System.arraycopy(array,index, array, index +1, size - index);
         array[index] = value;
         System.out.println(Arrays.toString(array));
@@ -27,7 +29,14 @@ public class ArrayList implements List {
 
     @Override
     public Object remove(int index) {
-        return null;
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index should be >= 0 and < size");
+        }
+        Object removerValue = array[index];
+        System.arraycopy(array,index + 1, array, index, size - index);
+        System.out.println(Arrays.toString(array));
+        size--;
+        return removerValue;
     }
 
     @Override
