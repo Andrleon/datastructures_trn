@@ -30,14 +30,20 @@ public class ArrayListTest {
         assertEquals(3, arrayWithThreeElements.size());
     }
 
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test
     public void testSetByIndex() {
         Object oldValue = arrayWithThreeElements.set("Q", 0);
         assertEquals("A", oldValue);
         assertEquals("Q", arrayWithThreeElements.get(0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testIndexOutOfBoundsSetByIndex() {
         arrayWithThreeElements.set("r", -1);
         arrayWithThreeElements.set("r", 3);
     }
+
+
 
     @Test
     public void testIsEmpty() {
