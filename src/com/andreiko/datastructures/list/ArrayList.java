@@ -1,10 +1,13 @@
 package com.andreiko.datastructures.list;
 
+import java.util.Arrays;
+
 /**
  * Created by dsk16 on 8/17/2018.
  */
 public class ArrayList implements List {
-    private Object[] array = new Object[5];
+    private static final int INITIAL_CAPACITY = 5;
+    private Object[] array = new Object[INITIAL_CAPACITY];
     private int size;
 
     @Override
@@ -16,6 +19,10 @@ public class ArrayList implements List {
     @Override
     public void add(Object value, int index) {
 
+        System.arraycopy(array,index, array, index +1, size - index);
+        array[index] = value;
+        System.out.println(Arrays.toString(array));
+        size++;
     }
 
     @Override

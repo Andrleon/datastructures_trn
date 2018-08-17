@@ -46,6 +46,16 @@ public class ArrayListTest {
         assertEquals(false, arrayWithThreeElements.isEmpty());
     }
 
+    @Test
+    public void testAddByIndex() {
+        arrayWithThreeElements.add("Q",1);
+        assertEquals(4, arrayWithThreeElements.size());
+        assertEquals("A", arrayWithThreeElements.get(0));
+        assertEquals("Q", arrayWithThreeElements.get(1));
+        assertEquals("B", arrayWithThreeElements.get(2));
+        assertEquals("C", arrayWithThreeElements.get(3));
+    }
+
 
 
 }
