@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 
 public class ArrayListTest {
     private ArrayList arrayWithThreeElements = new ArrayList();
+    private ArrayList emptyArray = new ArrayList();
 
     @Before
     public void before() {
@@ -28,6 +29,23 @@ public class ArrayListTest {
     public void testSize() {
         assertEquals(3, arrayWithThreeElements.size());
     }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSetByIndex() {
+        Object oldValue = arrayWithThreeElements.set("Q", 0);
+        assertEquals("A", oldValue);
+        assertEquals("Q", arrayWithThreeElements.get(0));
+        arrayWithThreeElements.set("r", -1);
+        arrayWithThreeElements.set("r", 3);
+    }
+
+    @Test
+    public void testIsEmpty() {
+        assertEquals(0, emptyArray.size());
+        assertEquals(true, emptyArray.isEmpty());
+        assertEquals(false, arrayWithThreeElements.isEmpty());
+    }
+
 
 
 }

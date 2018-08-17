@@ -30,7 +30,12 @@ public class ArrayList implements List {
 
     @Override
     public Object set(Object value, int index) {
-        return null;
+        if (index < 0 || index >= size){
+            throw new IndexOutOfBoundsException("Index should be >= 0 and < size");
+        }
+        Object oldValue = array[index];
+        array[index] = value;
+        return oldValue;
     }
 
     @Override
@@ -45,7 +50,7 @@ public class ArrayList implements List {
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
